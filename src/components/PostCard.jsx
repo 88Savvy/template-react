@@ -1,34 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
- function PostCard({ post }) {
+function PostCard({ post }) {
   return (
-    <div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
-      </div>
-      <div className="p-6">
-        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          {post.title}
-        </h5>
-        <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-        {post.author.username}
-        </p>
-      </div>
-      <div className="p-6 pt-0">
-        <Link to={`/posts/${post._id}`}>
-          <button
-            data-ripple-light="true"
-            type="button"
-            className="select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-gray-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          >
-            View Post
-          </button>
-        </Link>
+    <div className="mx-auto max-w-7xl px-4">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6">
+          <h5 className="text-xl font-semibold text-gray-900">{post.title}</h5>
+          <p className="text-base text-gray-500">{post.author.username}</p>
+          <p className="text-base text-gray-700 mt-2">
+            {post.content.substring(0, 300)}...
+          </p>
+          <Link to={`/posts/${post._id}`}>
+            <button
+              type="button"
+              className="bg-black text-white py-2 px-4 mt-4 rounded-md hover:bg-papyrus transition duration-300 ease-in-out"
+            >
+              View Post
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
 
 export default PostCard;
-
-

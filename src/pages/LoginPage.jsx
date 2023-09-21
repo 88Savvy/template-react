@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PapyrusIcon from "../images/papyrus-icon.png";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -39,40 +40,20 @@ function LoginPage() {
     }
   }
 
-  /*async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      //Faça a requisição para a rota /login da sua api aqui.
-
-      //GUARDAR O TOKEN E ID DE QUEM LOGOU
-      //const token = response.data.token;
-      //const userId = response.data.user._id;
-
-      //localStorage.setItem("userToken", token);
-      //localStorage.setItem("userId", userId);
-
-      navigate("/profile");
-    } catch (error) {
-      // lógica se der erro na requisição
-      console.log(error);
-    }
-  }
-  */
-
   function handleRadio(e) {
     setUserType(e.target.value);
   }
 
   return (
-    <div className="flex min-h-full justify-center items-center bg-gray-100">
-      <div className=" sm:w-full sm:max-w-sm bg-white p-8 rounded-lg shadow">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-          className="mx-auto h-10 w-auto"
-          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+          className="mx-auto h-14 w-auto"
+          src={PapyrusIcon}
           alt="Your Company"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
-          Entre na sua conta
+          Sign in to your account
         </h2>
 
         <form className="mt-10 space-y-6" onSubmit={handleSubmit}>
@@ -81,7 +62,7 @@ function LoginPage() {
               htmlFor="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Email
+              Email Address
             </label>
             <div className="mt-2">
               <input
@@ -102,7 +83,7 @@ function LoginPage() {
               htmlFor="password"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Senha
+              Password
             </label>
             <div className="mt-2">
               <input
@@ -121,22 +102,22 @@ function LoginPage() {
           <div>
             <button
               type="submit"
-              className="w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="w-full justify-center rounded-md bg-papyrus px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Entrar
+              Sign In
             </button>
           </div>
         </form>
 
         <p className="mt-10 text-center text-xs text-gray-500">
-          Problemas com o login?{" "}
+          Having trouble logging in?{" "}
           <a
             href="https://wa.me/+5511999999999/?text=Não%20consegui%20me%20cadastrar%20no%20site"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Entre em contato com a gente
+            Contact the Papyrus team
           </a>
         </p>
       </div>

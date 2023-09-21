@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import api from "../axios/api";
+import PapyrusIcon from "../images/papyrus-icon.png";
 
 function SignupPage() {
   const navigate = useNavigate();
@@ -71,15 +71,15 @@ function SignupPage() {
 
   return (
     <div>
-      <div className="flex min-h-full justify-center items-center bg-gray-100">
-        <div className="sm:w-full sm:max-w-sm bg-white p-8 rounded-lg shadow">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src={PapyrusIcon}
             alt="Your Company"
           />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 text-gray-900">
-            Cadastre-se na plataforma
+            Sign up for Papyrus
           </h2>
 
           <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ function SignupPage() {
                 htmlFor="username"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Nome de Usuário
+                Username
               </label>
               <div className="mt-2">
                 <input
@@ -108,7 +108,7 @@ function SignupPage() {
                 htmlFor="name"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Nome Completo
+                Full Name
               </label>
               <div className="mt-2">
                 <input
@@ -128,7 +128,7 @@ function SignupPage() {
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Email
+                Email Address
               </label>
               <div className="mt-2">
                 <input
@@ -149,7 +149,7 @@ function SignupPage() {
                 htmlFor="password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Senha
+                Password
               </label>
               <div className="mt-2">
                 <input
@@ -170,7 +170,7 @@ function SignupPage() {
                 htmlFor="photo"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Foto de perfil
+                Profile Picture
               </label>
               <div className="flex items-center mt-1 ">
                 <label
@@ -191,7 +191,7 @@ function SignupPage() {
                       d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                     />
                   </svg>
-                  Escolher Foto
+                  Choose a Photo
                 </label>
                 <input
                   id="photo"
@@ -207,22 +207,22 @@ function SignupPage() {
             <div>
               <button
                 type="submit"
-                className="w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="w-full justify-center rounded-md bg-papyrus px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                CADASTRE-SE
+                SIGN UP
               </button>
             </div>
           </form>
 
           <p className="mt-5 text-center text-xs text-gray-500">
-            Problemas com o cadastro?{" "}
+            Problems signing up?{" "}
             <a
               href="https://wa.me/+5511999999999/?text=Não%20consegui%20me%20cadastrar%20no%20site"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Entre em contato com a gente
+              Contact the Papyrus team
             </a>
           </p>
         </div>

@@ -24,12 +24,22 @@ function DiscoveryPage() {
   console.log(posts);
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {posts.map((post) => (
-        <div key={post._id}>
-          <PostCard post={post} />
+    <div>
+      <div className="mx-auto max-w-2xl lg:text-center mt-12 mb-12">
+        <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Discover the Features of Papyrus
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+          {posts.map((post) => (
+            <div key={post._id} className="col-span-1">
+              <PostCard post={post} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

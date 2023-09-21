@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import api from "../axios/api";
 
@@ -47,17 +46,16 @@ function NewPostPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-  
-  
+
     try {
       const response = await api.post(
         "/post/create",
-        form, // Just pass the entire form object
+        form // Just pass the entire form object
       );
-  
+
       // Assuming your backend sends back the created post data
       const createdPost = response.data;
-  
+
       // Redirect to the newly created post or wherever you want
       navigate(`/posts/${createdPost._id}`);
     } catch (error) {
@@ -65,37 +63,68 @@ function NewPostPage() {
       alert("Error creating post. Please try again later.");
     }
   }
-  
-  
 
   return (
-    <div>
-      <h1>Create a New Post</h1>
+    <div className="mx-auto max-w-2xl px-4">
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            required
-          />
+        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="sm:col-span-4">
+            <label
+              htmlFor="title"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Title
+            </label>
+            <div className="mt-2">
+              <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input
+                  className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  placeholder="Please insert a title..."
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={form.title}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label htmlFor="content">Content</label>
-          <textarea
-            id="content"
-            name="content"
-            value={form.content}
-            onChange={handleChange}
-            required
-          />
+
+        <div className="col-span-full mt-6">
+          <label
+            htmlFor="content"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Content
+          </label>
+          <div className="mt-2">
+            <textarea
+              rows={8}
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              id="content"
+              name="content"
+              value={form.content}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <p className="mt-3 text-sm leading-6 text-gray-600">
+            Tell us what's on your mind and share with the world!
+          </p>
         </div>
-        <div>
-          <label htmlFor="category">Category</label>
+
+        <div className="sm:col-span-3 mt-6">
+          <label
+            htmlFor="category"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Category
+          </label>
+          <div className="mt-2"></div>
           <select
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
             id="category"
             name="category"
             value={form.category}
@@ -110,7 +139,15 @@ function NewPostPage() {
             ))}
           </select>
         </div>
-        <button type="submit">Create Post</button>
+
+        <div className="mt-6 flex items-center justify-end gap-x-6"></div>
+
+        <button
+          type="submit"
+          className="rounded-md bg-papyrus px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Create Post
+        </button>
       </form>
     </div>
   );
