@@ -1,17 +1,17 @@
 import axios from "axios";
 
 const api = axios.create({
-   baseURL: "http://localhost:4000",
+  baseURL: "https://papyrus-server.cyclic.app",
 });
 
 api.interceptors.request.use((config) => {
-   const token = localStorage.getItem("userToken");
+  const token = localStorage.getItem("userToken");
 
-   if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-   }
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-   return config;
+  return config;
 });
 
 export default api;
